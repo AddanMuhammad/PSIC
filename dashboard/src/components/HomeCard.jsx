@@ -20,7 +20,7 @@ const HomeCard = ({ cardsData }) => {
               ></div>
               <div className="ag-courses-item_title">{card.title}</div>
               <div className="ag-courses-item_date-box">
-                Total: <span className="ag-courses-item_date">{card.startDate}</span>
+                 <span className="ag-courses-item_date">{card.startDate}</span>
               </div>
             </div>
           </div>

@@ -213,7 +213,7 @@ const MapComponent = () => {
         <span style={{ fontWeight: "bold", fontSize: "20px" }}><UpOutlined /></span>
       </button>
 
-      <div style={{ ...rightPanelStyle, transform: isRightPanelVisible ? "translateX(0)" : "translateX(100%)" }}>
+      {/* <div style={{ ...rightPanelStyle, transform: isRightPanelVisible ? "translateX(0)" : "translateX(100%)" }}>
         <button onClick={toggleRightPanel} style={closeRightPanelButtonStyle}>
           {isRightPanelVisible ? <RightOutlined /> : <LeftOutlined />}
         </button>
@@ -226,7 +226,7 @@ const MapComponent = () => {
             <Link to="/map/mauza-crop-yield-map"><PicLeftOutlined style={{ color: 'white', fontSize: '15px' }}/></Link>
           </button>
         </div>
-      </div>
+      </div> */}
 
       <div style={{ ...panelStyle, transform: isPanelVisible ? "translateY(0)" : "translateY(100%)" }}>
         <div style={panelContentStyle}>

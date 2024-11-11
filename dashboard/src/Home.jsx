@@ -4,19 +4,19 @@ import HomeCard from './components/HomeCard';
 
 function Home() {
   const cardsData = [
-    { title: 'Total Region', startDate: '08', bgColor: '#6B8E23' },
-    { title: 'Total Area', startDate: '1,920 Acres', bgColor: '#6B8E23' },
-    { title: 'Total Functional Units', startDate: '4,700', bgColor: '#6B8E23' },
-    { title: 'Total Non Functional Units', startDate: '2,100', bgColor: '#6B8E23' },
-    { title: 'Total Vacant', startDate: '600', bgColor: '#6B8E23' },
-    { title: 'Total Estate', startDate: '23', bgColor: '#6B8E23' },
-    { title: 'Total Plots', startDate: '7,599', bgColor: '#6B8E23' },
+    { title: 'Area', startDate: '1,920 Acres', bgColor: '#6B8E23' },
+    { title: 'Regions', startDate: '08', bgColor: '#6B8E23' },
+    { title: 'Estates', startDate: '23', bgColor: '#6B8E23' },
+    { title: 'Total Plots/ Units', startDate: '7,599', bgColor: '#6B8E23' },
+    { title: 'Functional Units', startDate: '4,700', bgColor: '#6B8E23' },
+    { title: 'Non Functional Units', startDate: '2,100', bgColor: '#6B8E23' },
+    { title: 'Vacant', startDate: '600', bgColor: '#6B8E23' },
   ];
 
   return (
     <Card style={styles.cardContainer}>
-      <div style={styles.headerText}>Dashboard Under-Development</div>
-      <div style={styles.subHeaderText}>Hi, Farmer. Welcome back to Admin!</div>
+      <div style={styles.headerText}>PUNJAB SMALL INDUSTRIES CORPORATION (PSIC)</div>
+      <div style={styles.subHeaderText}>Hi, Welcome back to Admin!</div>
       <div style={styles.homeCardContainer}>
         <HomeCard cardsData={cardsData} />
       </div>
