@@ -31,7 +31,6 @@ const MapComponent = () => {
     ],
   });
 
-
   const location = useLocation();
   const selectedKey = location.pathname === '/map/fields-map' ? '1' : location.pathname === '/map/crop-yield-map' ? '2' : location.pathname === '/map/lst-map' ? '3' : location.pathname === '/map/soil-map' ? '4' : '5';
 
@@ -105,15 +104,14 @@ const MapComponent = () => {
     const nonFunctionalUnits = filteredFeatures.filter(feature => feature.properties.P_Status === 'Non Functional').length;
     const functionalUnits = filteredFeatures.filter(feature => feature.properties.P_Status === 'Functional').length;
     const vacantUnits = filteredFeatures.filter(feature => feature.properties.P_Status === 'Others').length;
-    const industrialName = selectedFeature.properties.Industrial || "N/A";
-    const ownerName = selectedFeature.properties.Name___Fat || "N/A";
-    const phoneNumber = selectedFeature.properties.Phone || "N/A";
-    const cnic = selectedFeature.properties.CNIC_No || "N/A";
-    const typeofAll = selectedFeature.properties.Type_of__A || "N/A";
-    const industryType = selectedFeature.properties.Industry_T || "N/A";
-    const email = selectedFeature.properties.Email || "N/A";
-    const address = selectedFeature.properties.Current_Ad || "N/A";
-    
+    const industrialName = selectedFeature?.properties.Industrial || "N/A";
+    const ownerName = selectedFeature?.properties.Name___Fat || "N/A";
+    const phoneNumber = selectedFeature?.properties.Phone || "N/A";
+    const cnic = selectedFeature?.properties.CNIC_No || "N/A";
+    const typeofAll = selectedFeature?.properties.Type_of__A || "N/A";
+    const industryType = selectedFeature?.properties.Industry_T || "N/A";
+    const email = selectedFeature?.properties.Email || "N/A";
+    const address = selectedFeature?.properties.Current_Ad || "N/A";
 
     // Calculate total area using Turf.js
     const totalAreaInAcres = filteredFeatures.reduce((acc, feature) => {
@@ -138,16 +136,14 @@ const MapComponent = () => {
           { title: "Industry Type:", value: industryType.toString() },
           { title: "Email:", value: email.toString() },
           { title: "Address:", value: address.toString() },
-
         ],
       });
-    }else if (selectedTehsil) {  // If Project Status is selected (Tehsil)
+    } else if (selectedTehsil) {  // If Project Status is selected (Tehsil)
       setPanelData({
         title: "Filtered Data",
         data: [
           { title: "Total Plots/ Units:", value: totalUnits.toString() },
-
-          { title: "Total Area (acres):", value: totalArea.toFixed(2) },
+          { title: "Total Area (acres):", value: totalAreaInAcres.toFixed(2) },
         ],
       });
     } else if (selectedDistrict) {  // If Estate (district) is selected
@@ -158,8 +154,7 @@ const MapComponent = () => {
           { title: "Functional Units:", value: functionalUnits.toString() },
           { title: "Non Functional Units:", value: nonFunctionalUnits.toString() },
           { title: "Vacant Units:", value: vacantUnits.toString() },
-          { title: "Total Area (acres):", value: totalArea.toFixed(2) },
-
+          { title: "Total Area (acres):", value: totalAreaInAcres.toFixed(2) },
         ],
       });
     }
@@ -212,8 +207,6 @@ const MapComponent = () => {
     // Set the selected Project Status (Tehsil)
     const selectedTehsilValue = e.target.value;
     setSelectedTehsil(selectedTehsilValue);
-
-    // No highlighting here anymore, highlight will happen after the filter button click.
   };
 
   const togglePanel = () => {
