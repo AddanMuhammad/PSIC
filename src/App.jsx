@@ -69,7 +69,7 @@ function App() {
             }}
           >
             <Routes>
-              <Route path="/AOS-Dashboard/" element={<Navigate to="/map" />} /> {/* Redirect to /map on load */}
+              <Route path="/PSIC/" element={<Navigate to="/map" />} /> {/* Redirect to /map on load */}
               <Route path="/home" element={<Home />} />
               <Route path="/create" element={<Create />} />
               <Route path="/details" element={<Details />} />
