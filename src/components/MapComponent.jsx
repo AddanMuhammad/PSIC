@@ -116,10 +116,11 @@ const MapComponent = () => {
     
 
     // Calculate total area using Turf.js
-    const totalArea = filteredFeatures.reduce((acc, feature) => {
+    const totalAreaInAcres = filteredFeatures.reduce((acc, feature) => {
       if (feature.geometry && (feature.geometry.type === 'Polygon' || feature.geometry.type === 'MultiPolygon')) {
-        const area = turf.area(feature);  // Area in square meters
-        return acc + area;
+        const areaInSqMeters = turf.area(feature);  // Area in square meters
+        const areaInAcres = areaInSqMeters / 4046.86; // Convert to acres
+        return acc + areaInAcres;
       }
       return acc;
     }, 0);
@@ -146,7 +147,7 @@ const MapComponent = () => {
         data: [
           { title: "Total Plots/ Units:", value: totalUnits.toString() },
 
-          { title: "Total Area (sq. meters):", value: totalArea.toFixed(2) },
+          { title: "Total Area (acres):", value: totalArea.toFixed(2) },
         ],
       });
     } else if (selectedDistrict) {  // If Estate (district) is selected
@@ -157,7 +158,7 @@ const MapComponent = () => {
           { title: "Functional Units:", value: functionalUnits.toString() },
           { title: "Non Functional Units:", value: nonFunctionalUnits.toString() },
           { title: "Vacant Units:", value: vacantUnits.toString() },
-          { title: "Total Area (sq. meters):", value: totalArea.toFixed(2) },
+          { title: "Total Area (acres):", value: totalArea.toFixed(2) },
 
         ],
       });
